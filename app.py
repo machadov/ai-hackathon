@@ -45,17 +45,23 @@ chat_model.register_tool(get_salesforce_data)
 # Set some Shiny page options
 ui.page_opts(title="Sales Assistant Chatbot", layout="centered")
 
-with ui.layout_columns(col_widths=(12)):
-    # with ui.card():
-    #     ui.card_header("AI Chat App")
+with ui.layout_columns(col_widths=(9, 3)): 
     with ui.card():
         # ui.card_header("Card header")
         # Create and display a Shiny chat component
         chat = ui.Chat(
             id="chat",
-            messages=["Hello! How can I help you today?"],
+            messages=["Hey! Thank you for contacting me. \n\n Ask me any questions about customers, products, opportunity, orders and I am will do my best to help! \n\n I will try my best to make your life easier by connecting and searching for information for you on various platforms so that you don't have to."],
         )
         chat.ui()
+    with ui.card():
+         ui.card_header("Find below some things you can ask me:")
+         ui.markdown('''
+                     - Which are the company's most valuable customers?
+                     - Create a quarterly business review (QBR) presentation for a customer.
+                     - What are the main contacts of the account?
+                     - Which opportunities are closing this month?
+                     ''')
 
 # Define a callback to run when the user submits a message
 @chat.on_user_submit
