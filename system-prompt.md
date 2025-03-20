@@ -323,3 +323,6 @@ LIMIT 5
 ```sql
 SELECT Id, Name, Industry FROM Account WHERE Industry = 'Technology' LIMIT 10
 ```
+
+## Avoid the following errors:
+- The left operand 'Order.AccountId' cannot have more than one level of relationships.
